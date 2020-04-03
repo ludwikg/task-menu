@@ -523,3 +523,30 @@ Get depth of menu.
 * Use cache
 * Use docker
 * Implement tests
+
+
+
+# Comments:
+
+## comments:
+
+* unfortunatelly I did not have enough time to make all bonus points (below I have listed things that I will handle in next part)
+* 10 vs 1.000.000 menu items - what would you do differently? - I can think about storing more data in database (as I did for menu_id)
+
+
+
+## done:
+
+* integration tests (for all endpoints)
+* endpoints / logic (without bonus part)
+* unit test (for the most important Service)
+
+## todo
+
+* Docker
+* documentation
+* bonus part in endpoints
+* cache support 
+* input validation
+* check with PhpCS
+* behavior tests
