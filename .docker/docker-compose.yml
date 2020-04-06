@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  webserver:
+    build:
+      context: ./webserver
+    container_name: 'png-webserver'
+    restart: 'always'
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - mysql
+    volumes:
+      - ./../:/var/www/html
+  mysql:
+    build: ./mysql
+    container_name: 'png-mysql'
+    restart: 'always'
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: tiger
+      MYSQL_DATABASE: png
+      MYSQL_USER: png
+      MYSQL_PASSWORD: png
