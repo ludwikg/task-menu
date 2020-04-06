@@ -540,6 +540,7 @@ Get depth of menu.
 * integration tests (for all endpoints)
 * endpoints / logic (without bonus part)
 * unit test (for the most important Service)
+* input validation
 
 ## todo
 
@@ -547,6 +548,5 @@ Get depth of menu.
 * documentation
 * bonus part in endpoints
 * cache support 
-* input validation
 * check with PhpCS
 * behavior tests
