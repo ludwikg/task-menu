@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Entities\ItemCollectionFactory;
+use App\Http\Requests\MenuItemStoreRequest;
 use App\Services\MenuItemService;
-use Illuminate\Http\Request;
 
 class MenuItemController extends Controller
 {
@@ -21,11 +21,11 @@ class MenuItemController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param MenuItemStoreRequest $request
      * @param int $menuId
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, int $menuId)
+    public function store(MenuItemStoreRequest $request, int $menuId)
     {
         $payload = json_decode($request->getContent());
         $itemCollection = ItemCollectionFactory::createFromPayload($payload, $menuId);

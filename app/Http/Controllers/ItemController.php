@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Entities\ItemFactory;
+use App\Http\Requests\ItemStoreRequest;
+use App\Http\Requests\ItemUpdateRequest;
 use App\Services\ItemService;
-use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
@@ -21,10 +22,10 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param ItemStoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ItemStoreRequest $request)
     {
         // I assumed that every Item has to be connected to the menu, so I decided to also add menuId as a required field in payload
         $payload = json_decode($request->getContent());
@@ -50,11 +51,11 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param ItemUpdateRequest $request
      * @param  int $itemId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $itemId)
+    public function update(ItemUpdateRequest $request, $itemId)
     {
         $item = ItemFactory::createFromPayload(json_decode($request->getContent()));
         $this->itemService->update($itemId, $item);

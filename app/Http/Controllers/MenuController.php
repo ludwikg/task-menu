@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Entities\MenuFactory;
+use App\Http\Requests\MenuStoreRequest;
+use App\Http\Requests\MenuUpdateRequest;
 use App\Services\MenuService;
-use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
@@ -21,10 +22,10 @@ class MenuController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param MenuStoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MenuStoreRequest $request)
     {
         $menu = MenuFactory::fromRequestObject(json_decode($request->getContent()));
         $this->menuService->store($menu);
@@ -47,12 +48,12 @@ class MenuController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
+     *=
+     * @param MenuUpdateRequest $request
      * @param  int $menuId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $menuId)
+    public function update(MenuUpdateRequest $request, $menuId)
     {
         $menu = MenuFactory::fromRequestObject(json_decode($request->getContent()));
         $this->menuService->update($menuId, $menu);

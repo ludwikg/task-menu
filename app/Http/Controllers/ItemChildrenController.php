@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Dto\ItemChildrenPostPayload;
+use App\Http\Requests\ItemChildrenStoreRequest;
 use App\Services\ItemChildrenService;
-use Illuminate\Http\Request;
 
 class ItemChildrenController extends Controller
 {
@@ -22,11 +22,11 @@ class ItemChildrenController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param ItemChildrenStoreRequest $request
      * @param int $itemId
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, int $itemId)
+    public function store(ItemChildrenStoreRequest $request, int $itemId)
     {
         $payload = json_decode($request->getContent());
         $payloadObj = new ItemChildrenPostPayload((int)$itemId, $payload);
