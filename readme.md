@@ -541,12 +541,12 @@ Get depth of menu.
 * endpoints / logic (without bonus part)
 * unit test (for the most important Service)
 * input validation
+* cache support 
 
 ## todo
 
 * Docker
 * documentation
 * bonus part in endpoints
-* cache support 
 * check with PhpCS
 * behavior tests
